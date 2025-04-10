@@ -1,0 +1,201 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    padding-top: 56px; /* Added to account for fixed navbar */
+}
+
+/* Container for centered content */
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px; /* Added padding */
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center; /* Center the heading */
+    color: #333;
+}
+
+/* Form Styling */
+.form-category {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Form Input Styling */
+input[type="text"], input[type="date"], input[type="email"], input[type="password"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Buttons Styling */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Primary Button Style */
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+/* Secondary Button Style */
+.btn-secondary {
+    background-color: #777;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+}
+
+/* Alert Styling */
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.alert-error {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+/* Background image styling */
+.home-background, .login-background, .register-background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Add overlay for better text readability */
+.home-background:before, .login-background:before, .register-background:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Make content appear above overlay */
+.content-wrapper, .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Specific styles for home, login, register pages */
+.home-background .content-wrapper {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.login-background .container, .register-background .container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+}
+
+/* Dashboard styles */
+.dashboard-container {
+    padding-top: 30px;
+}
+
+.task-card {
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.task-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-badge {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+/* Task status colors */
+.status-pending {
+    color: #ff9800;
+}
+
+.status-completed {
+    color: #4CAF50;
+}
+
+.status-overdue {
+    color: #f44336;
+}
+
+/* Footer styling */
+footer {
+    margin-top: 50px;
+    padding: 15px 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Edit Task</h2>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Task Title:</label>
+            <input type="text" id="title" name="title" value="{{ task.title }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4">{{ task.description }}</textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority">
+                <option value="low" {% if task.priority == 'low' %}selected{% endif %}>Low</option>
+                <option value="medium" {% if task.priority == 'medium' %}selected{% endif %}>Medium</option>
+                <option value="high" {% if task.priority == 'high' %}selected{% endif %}>High</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="due_date">Due Date:</label>
+            <input type="date" id="due_date" name="due_date" value="{% if task.due_date %}{{ task.due_date|date:'Y-m-d' }}{% endif %}">
+        </div>
+        
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                <option value="">Uncategorized</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}" {% if task.category and task.category.id == category.id %}selected{% endif %}>{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-buttons">
+            <button type="submit" class="btn">Update Task</button>
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+    
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .btn-secondary {
+            background-color: #777;
+        }
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .alert-success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .alert-error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+    </style>
+{% endblock %}
